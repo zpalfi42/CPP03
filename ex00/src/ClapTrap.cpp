@@ -44,7 +44,6 @@ ClapTrap::~ClapTrap()
 
 void	ClapTrap::attack(const std::string& target)
 {
-	std::cout << this->_HP << std::endl;
 	if (this->_HP <= 0)
 	{
 		std::cout << this->_name << " cannot attack, he has 0 HP left!" << std::endl;
@@ -53,6 +52,11 @@ void	ClapTrap::attack(const std::string& target)
 	{
 		for (int i = 0; i < (int)this->_AD; i++)
 		{
+			if (this->_EP <= 0)
+			{
+				std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " << this->_AD << " points of damage! But he has no EP left!" << std::endl;
+				return ;
+			}
 			this->_EP--;
 		}
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " << this->_AD << " points of damage!" << std::endl;
@@ -80,8 +84,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		if (this->_EP <= 0)
 		{
-			amount = i;
-			break ;
+			std::cout << "ClapTrap " << this->_name << " repairs himself " << i << " point of damage! But he has no EP left!" << std::endl;
+			return ;
 		}
 		this->_HP++;
 		this->_EP--;
