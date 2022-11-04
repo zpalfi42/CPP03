@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 /**
- * ! Orthodox canonical needs
+ * ! Orthodox canonical needs:
  */
 
 ClapTrap::ClapTrap( void ): _name("Default"), _HP(10), _EP(10), _AD(0)
@@ -12,6 +12,11 @@ ClapTrap::ClapTrap( void ): _name("Default"), _HP(10), _EP(10), _AD(0)
 ClapTrap::ClapTrap( const ClapTrap &claptrap): _name(claptrap._name), _HP(claptrap._HP), _EP(claptrap._EP), _AD(claptrap._AD)
 {
 	std::cout << "ClapTrap copied " << claptrap._name << " constructor called!" << std::endl;
+}
+
+ClapTrap::ClapTrap( unsigned int hp, unsigned int ep, unsigned int ad, std::string name): _name(name), _HP(hp), _EP(ep), _AD(ad)
+{
+	std::cout << "ClapTrap BASE named " << name << " constructor called!" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
@@ -29,7 +34,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 
 
 /**
- * ! Demanded by exercice
+ * ! Demanded by exercice:
  */
 
 ClapTrap::ClapTrap(std::string name): _name(name), _HP(10), _EP(10), _AD(0)
