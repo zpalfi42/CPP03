@@ -1,8 +1,8 @@
 #include "ScavTrap.hpp"
 
-/*
-	! Orthodox canonical needs:
-*/
+/**
+ * ! Orthodox canonical needs:
+ */
 
 /**
  *	In order to initialize the previously private variables of the class ClapTrap, we have to change them to protected.
@@ -18,17 +18,17 @@
 
 ScavTrap::ScavTrap( void ): ClapTrap(100, 50, 20, "Default")
 {
-	std::cout << "Default ScavTrap constructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap( void )
 {
-	std::cout << this->_name << " ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap &scavtrap): ClapTrap(scavtrap._HP, scavtrap._EP, scavtrap._AD, scavtrap._name)
 {
-	std::cout << "ScavTrap copied " << scavtrap._name << " constructor called!" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " copy constructor called" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=( const ScavTrap &scavtrap)
@@ -44,13 +44,13 @@ ScavTrap &ScavTrap::operator=( const ScavTrap &scavtrap)
 	return (*this);	
 }
 
-/*
-	! Demanded by exercice:
-*/
+/**
+ * ! Demanded by exercice:
+ */
 
 ScavTrap::ScavTrap( std::string name ): ClapTrap(100, 50, 20, name)
 {
-	std::cout << this->_name << "ScavTrap constructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " constructor called" << std::endl;
 }
 
 void	ScavTrap::guardGate( void )
@@ -58,9 +58,9 @@ void	ScavTrap::guardGate( void )
 	std::cout << this->_name << " ScavTrap is now in Gate keeper mode" << std::endl;
 }
 
-/*
-	! Not demanded by exercice, made for testing:
-*/
+/**
+ * ! Not demanded by exercice, made for testing:
+ */
 
 int	ScavTrap::getAd( void )
 {
